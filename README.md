@@ -133,7 +133,7 @@ mvn help:effective-settings
 Se houver resquícios de configuração do Eclipse, force o uso do `settings.xml` do Maven com o comando:
 
 ```bash
-mvn clean install -s "C:\apache-maven-3.5.4\conf\settings.xml"
+mvn clean install
 ```
 
 ```
