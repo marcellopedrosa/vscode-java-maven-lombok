@@ -101,7 +101,7 @@ Crie o arquivo `.vscode/launch.json` com o conteúdo abaixo:
       "type": "java",
       "name": "Debug Minha API",
       "request": "launch",
-      "mainClass": "br.com.fachesf.Application",
+      "mainClass": "br.com.empresa.Application",
       "projectName": "application",
       "cwd": "${workspaceFolder}/application",
       "args": "",
