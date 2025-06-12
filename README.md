@@ -111,7 +111,8 @@ Crie o arquivo `.vscode/launch.json` com o conteúdo abaixo:
 }
 ```
 
-![_launch json](https://github.com/user-attachments/assets/f82c7ea5-0080-4432-9887-d05a1cb51773)
+![image](https://github.com/user-attachments/assets/15e43d79-e950-43b8-bac2-f34237dbf920)
+
 
 ---
 
