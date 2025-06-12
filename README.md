@@ -52,7 +52,7 @@ Instale as seguintes extensões no VSCode:
 
 ---
 
-### 4. Configuração do Java Runtime
+### 4. Configuração do Java Runtime (nesse projeto foi utilizado Java 11, com outra versão é o mesmo passo-a-passo)
 
 1. Pressione `Ctrl + Shift + P`
 
