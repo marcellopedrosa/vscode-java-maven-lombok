@@ -99,28 +99,31 @@ Crie o arquivo `.vscode/launch.json` com o conteúdo abaixo:
     "configurations": [
       {
         "type": "java",
-        "name": "Debug Minha API",
+        "name": "Debug Spring Boot",
         "request": "attach",
         "hostName": "localhost",
         "port": 5005,
         "timeout": 120000,
+        "preLaunchTask": "mvnDebug",
         "projectName": "application",
         "sourcePaths": [
           "${workspaceFolder}/application/src/main/java",
           "${workspaceFolder}/domain/src/main/java",
           "${workspaceFolder}/infrastructure/src/main/java",
           "${workspaceFolder}/usecase/src/main/java"
-        ]
+        ],
+        "postDebugTask": "terminate mvnDebug"
       }
-    ]
+    ],
+    "compounds": []
   }
-
 ```
 
 #### 👉 Todos módulos DEVEM estar mapeados em sourcePaths para saber a raiz de execução de cada módulo "/src/main/java"
 #### 👉 Application é a classe que inicia o spring boot, pois ela tem o decorator: @SpringBootApplication()
 
-![image](https://github.com/user-attachments/assets/15e43d79-e950-43b8-bac2-f34237dbf920)
+![image](https://github.com/user-attachments/assets/308dd609-fde3-4ec9-b5c3-dc3d1bf319de)
+
 
 ---
 
@@ -135,21 +138,7 @@ Crie o arquivo `.vscode/task.json` com o conteúdo abaixo:
     {
       "label": "mvnDebug",
       "type": "shell",
-      "command": "mvn",
-      "args": [
-        "-f",
-        "pom.xml",
-        "-Dspring-boot.run.jvmArguments=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005",
-        "-Dspring.profiles.active=dev",
-        "-DskipTests",
-        "spring-boot:run"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}/application",
-        "env": {
-          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-11.0.12"
-        }
-      },
+      "command": "cd ${workspaceFolder}/application; mvn clean compile; Write-Host 'Iniciando aplicação em modo debug...'; mvn spring-boot:run '-Dspring-boot.run.jvmArguments=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005'",
       "isBackground": true,
       "problemMatcher": {
         "pattern": [
@@ -162,10 +151,24 @@ Crie o arquivo `.vscode/task.json` com o conteúdo abaixo:
         ],
         "background": {
           "activeOnStart": true,
-          "beginsPattern": ".",
+          "beginsPattern": "Iniciando aplicação em modo debug...",
           "endsPattern": "Listening for transport dt_socket at address: 5005"
         }
       }
+    },
+    {
+      "label": "terminate mvnDebug",
+      "command": "echo ${input:terminate}",
+      "type": "shell",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "terminate",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "mvnDebug"
     }
   ]
 }
