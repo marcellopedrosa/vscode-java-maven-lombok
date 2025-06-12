@@ -95,26 +95,82 @@ Crie o arquivo `.vscode/launch.json` com o conteúdo abaixo:
 
 ```json
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "java",
-      "name": "Debug Minha API",
-      "request": "launch",
-      "mainClass": "br.com.empresa.Application",
-      "projectName": "application",
-      "cwd": "${workspaceFolder}/application",
-      "args": "",
-      "console": "integratedTerminal"
-    }
-  ]
-}
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "name": "Debug Minha API",
+        "request": "attach",
+        "hostName": "localhost",
+        "port": 5005,
+        "timeout": 120000,
+        "projectName": "application",
+        "sourcePaths": [
+          "${workspaceFolder}/application/src/main/java",
+          "${workspaceFolder}/domain/src/main/java",
+          "${workspaceFolder}/infrastructure/src/main/java",
+          "${workspaceFolder}/usecase/src/main/java"
+        ]
+      }
+    ]
+  }
+
 ```
-#### IMPORTANTE: Application é a classe que inicia o spring boot, pois ela tem o decorator: @SpringBootApplication()
+
+#### 👉 Todos módulos DEVEM estar mapeados em sourcePaths para saber a raiz de execução de cada módulo "/src/main/java"
+#### 👉 Application é a classe que inicia o spring boot, pois ela tem o decorator: @SpringBootApplication()
 
 ![image](https://github.com/user-attachments/assets/15e43d79-e950-43b8-bac2-f34237dbf920)
 
 ---
+
+#### 5.4 Criar `task.json`
+
+Crie o arquivo `.vscode/task.json` com o conteúdo abaixo:
+
+```json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "mvnDebug",
+      "type": "shell",
+      "command": "mvn",
+      "args": [
+        "-f",
+        "pom.xml",
+        "-Dspring-boot.run.jvmArguments=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005",
+        "-Dspring.profiles.active=dev",
+        "-DskipTests",
+        "spring-boot:run"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/application",
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-11.0.12"
+        }
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "Listening for transport dt_socket at address: 5005"
+        }
+      }
+    }
+  ]
+}
+```
+#### 👉 Lembre-se que o projeto em questão (web) está no módulo application, por isso o mapeamento em: ${workspaceFolder}/application
 
 ## 🔎 Testando a Configuração
 
