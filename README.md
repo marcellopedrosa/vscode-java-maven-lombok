@@ -79,11 +79,12 @@ Crie o arquivo `.vscode/settings.json` com o conteúdo abaixo (ajuste o caminho 
       "path": "C:\\Program Files\\Java\\jdk-11.0.12",
       "default": true
     }
-  ]
+  ],
+  "maven.settingsFile": "C:\\apache-maven-3.5.4\\conf\\settings.xml"
 }
 ```
+![_settings_json](https://github.com/user-attachments/assets/0ed5234c-9d29-4bf4-9b4e-68b77e28ada3)
 
-![_settings_json](https://github.com/user-attachments/assets/9becfcb7-72c9-4c98-acf4-3d6a1a83f3b2)
 
 #### 5.3 Criar `launch.json`
 
@@ -136,12 +137,3 @@ mvn clean install -s "C:\apache-maven-3.5.4\conf\settings.xml"
 ## ✅ Pronto!
 
 Seu ambiente está configurado para desenvolvimento com Java, Lombok e Spring Boot no VSCode.
-
-
-
-
-
-
-
-
-
