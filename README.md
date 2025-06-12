@@ -138,7 +138,7 @@ mvn clean install -s "C:\apache-maven-3.5.4\conf\settings.xml"
 ```
 👉 O local acima do maven na raiz é se você for administrador da máquina
 
-👉 Se você não for administrador da máquina (ambiente de uma empresa que você loga com Active Directory) utilize SEMPRE ambiente do usuário ex: C:\Users\marcello.pedrosa\.m2
+👉 >> Recomendado << Se você não for administrador da máquina (ambiente de uma empresa que você loga com Active Directory) utilize SEMPRE ambiente do usuário ex: C:\Users\marcello.pedrosa\.m2
 ```
 
 ## ✅ Debug
