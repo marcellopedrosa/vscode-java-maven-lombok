@@ -110,6 +110,7 @@ Crie o arquivo `.vscode/launch.json` com o conteúdo abaixo:
   ]
 }
 ```
+#### IMPORTANTE: Application é a classe que inicia o spring boot, pois ela tem o decorator: @SpringBootApplication()
 
 ![image](https://github.com/user-attachments/assets/15e43d79-e950-43b8-bac2-f34237dbf920)
 
