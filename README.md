@@ -55,6 +55,9 @@ Instale as seguintes extensões no VSCode:
 ### 4. Configuração do Java Runtime
 
 1. Pressione `Ctrl + Shift + P`
+
+![Captura de tela 2025-06-12 101856](https://github.com/user-attachments/assets/c19ccd3d-ee43-49f9-828c-e3bdc296ddbb)
+
 2. Digite e selecione `Java: Configure Java Runtime`
 
 ![_java_settings](https://github.com/user-attachments/assets/dfcac762-c357-42a5-9df3-4d07bda0c3aa)
