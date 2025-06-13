@@ -205,6 +205,7 @@ mvn clean install
 
 Agora coloque a aplicação no modo debug para executar:
 
-![image](https://github.com/user-attachments/assets/2bfc4b9a-6c56-42d7-bcab-208e1b1cf64d)
+![image](https://github.com/user-attachments/assets/fc9674e7-ac8e-4e87-962a-cd9842f311cc)
+
 
 
